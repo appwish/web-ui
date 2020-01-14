@@ -1,5 +1,5 @@
 {
-  "name": "first_next_app",
+  "name": "web-ui",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,8 +10,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "hina",
-  "license": "ISC",
+  "author": "appwish",
+  "license": "AGPL-3.0",
   "dependencies": {
     "next": "^9.1.7",
     "react": "^16.12.0",

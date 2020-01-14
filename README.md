@@ -6,3 +6,13 @@
 [Appwish features map](https://app.creately.com/diagram/SB1Gc6cyHdD/view)
 
 ## Building
+
+To build your application: 
+```bash 
+yarn build
+```
+
+To run your application:
+```bash
+yarn start
+```

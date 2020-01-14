@@ -1,7 +1,6 @@
-
 FROM node:10
 
-WORKDIR /first_next_app
+WORKDIR /nextjs
 
 COPY package*.json ./
 

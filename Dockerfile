@@ -1,13 +1,27 @@
-FROM node:10
+FROM node:alpine
 
-WORKDIR /nextjs
+RUN mkdir -p /opt/app
+RUN apk add --no-cache libc6-compat
+ENV NODE_ENV production
+ENV PORT 3000
+EXPOSE 3000
 
-COPY package*.json ./
+WORKDIR /opt/app
 
-RUN npm install
+COPY package.json /opt/app
+COPY yarn.lock /opt/app
 
-COPY . .
+RUN yarn install
 
-RUN npm run build
+COPY . /opt/app
 
-CMD ["npm","start"]
+RUN yarn build
+
+RUN npx next telemetry disable
+
+RUN addgroup -g 1001 -S nodejs
+RUN adduser -S nextjs -u 1001
+
+USER nextjs
+
+CMD [ "npm", "start" ]

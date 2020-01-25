@@ -1,0 +1,8 @@
+{
+  "plugins": ["emotion"],
+  "rules": {
+    "emotion/styled-import": "error",
+    "emotion/no-vanilla": "error",
+    "emotion/syntax-preference": [2, "string"]
+  }
+}

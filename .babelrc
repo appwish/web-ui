@@ -1,0 +1,4 @@
+{
+  "presets": ["next/babel"],
+  "plugins": ["emotion", "macros", "@babel/plugin-proposal-object-rest-spread"]
+}

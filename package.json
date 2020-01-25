@@ -7,14 +7,39 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prettier:fix": "prettier --write \"**/*.{js,jsx,json,ts,tsx,md,mdx,css,html,yml,yaml}\""
   },
   "keywords": [],
   "author": "appwish",
   "license": "AGPL-3.0",
+  "husky": {
+    "pre-commit": "lint-staged",
+    "pre-push": "yarn test"
+  },
+  "lint-staged": {
+    "*": [
+      "yarn prettier:fix",
+      "git add"
+    ]
+  },
   "dependencies": {
-    "next": "^9.1.7",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "next": "^9.2.1",
+    "@emotion/core": "^10.0.27",
+    "@emotion/styled": "^10.0.27",
+    "tailwindcss": "^1.1.4",
+    "postcss-import": "^12.0.1"
+  },
+  "devDependencies": {
+    "babel-plugin-emotion": "^10.0.27",
+    "babel-plugin-macros": "^2.8.0",
+    "tailwind.macro": "^1.0.0-alpha.10",
+    "eslint": "^6.8.0",
+    "eslint-plugin-emotion": "^10.0.27",
+    "prettier": "^1.19.1",
+    "husky": "^4.2.1",
+    "lint-staged": "^10.0.2"
   }
 }

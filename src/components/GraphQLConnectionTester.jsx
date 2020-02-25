@@ -7,7 +7,7 @@ const ALL_WISHES_QUERY = gql`
     allWish {
       id
       title
-      content
+      markdown
     }
   }
 `
@@ -33,7 +33,7 @@ const GraphQLConnectionTester = ({ className }) => {
         </div>
         <h5>Query:</h5>
         <p className={classnames('text-gray-700', 'text-base', 'mb-3')}>
-          query &#123; allWish &#123; id title content &#125; &#125;
+          query &#123; allWish &#123; id title markdown &#125; &#125;
         </p>
         <h5>Response:</h5>
         <p className={classnames('text-gray-700', 'text-base')}>

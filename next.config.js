@@ -17,7 +17,7 @@ module.exports = phase => {
 
   const env = {
     GRAPHQL_SERVER_URL: (() => {
-      if (isProdQovery) return 'https://rrmvkauvtlmn51uq-nxun73i1pgl3m4ga-app.qovery.io'
+      if (isProdQovery) return 'https://rrmvkauvtlmn51uq-nxun73i1pgl3m4ga-app.qovery.io/graphql'
       if (isProd) return 'http://localhost:8000/graphql'
       if (isDev) return 'http://localhost:8000/graphql'
       return 'GRAPHQL_SERVER_URL:not (isDev,isProd)'

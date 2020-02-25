@@ -13,6 +13,7 @@ module.exports = phase => {
   const isProdQovery = process.env.QOVERY_IS_PRODUCTION === "True"
 
   console.log(`isDev:${isDev}  isProd:${isProd} isProdQovery:${isProdQovery}`)
+  console.log(process.env.QOVERY_APPLICATION_GRAPHQLAPI_HOST)
 
   const env = {
     GRAPHQL_SERVER_URL: (() => {

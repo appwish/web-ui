@@ -16,7 +16,7 @@ module.exports = phase => {
 
   const env = {
     GRAPHQL_SERVER_URL: (() => {
-      if (isProdQovery) return process.env.QOVERY_APPLICATION_WISHSERVICE_HOST
+      if (isProdQovery) return process.env.QOVERY_APPLICATION_GRAPHQLAPI_HOST
       if (isProd) return 'http://localhost:8000/graphql'
       if (isDev) return 'http://localhost:8000/graphql'
       return 'GRAPHQL_SERVER_URL:not (isDev,isProd)'

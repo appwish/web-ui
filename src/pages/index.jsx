@@ -1,11 +1,12 @@
 import { classnames } from 'tailwindcss-classnames'
 import GraphQLConnectionTester from '../components/GraphQLConnectionTester'
 import withApollo from '../lib/apollo'
+import Layout from '../components/layout'
 
-const Index = () => (
-  <div className={classnames('h-screen', 'flex')}>
-    <GraphQLConnectionTester className={classnames('m-auto')} />
-  </div>
+const Feed = () => (
+  <Layout>
+    {/* <GraphQLConnectionTester /> */}
+  </Layout>
 )
 
-export default withApollo(Index)
+export default withApollo(Feed)

@@ -1,12 +1,26 @@
-import { classnames } from 'tailwindcss-classnames'
-import GraphQLConnectionTester from '../components/GraphQLConnectionTester'
 import withApollo from '../lib/apollo'
 import Layout from '../components/layout'
+import Filters from '../components/filters'
+import Card from '../components/card'
+import { ReactComponent as WaitImg } from '../../public/hourglass.svg'
 
-const Feed = () => (
+const WishFeed = () => (
   <Layout>
-    {/* <GraphQLConnectionTester /> */}
+    <Filters />
+    <div className="flex justify-between flex-wrap">
+      <Card />
+      <Card />
+      <Card />
+      <Card expanded />
+      <Card />
+      <Card />
+      <Card expanded />
+      <Card />
+      <Card />
+      <Card />
+    </div>
+    <WaitImg className="mx-auto mt-8" />
   </Layout>
 )
 
-export default withApollo(Feed)
+export default withApollo(WishFeed)

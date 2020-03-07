@@ -3,9 +3,9 @@ import { ReactComponent as CommentImg } from '../../public/comment.svg'
 import { ReactComponent as LikeImg } from '../../public/heart.svg'
 
 const CardHeader = () => (
-  <div className="flex border-2 border-gray-200 h-16">
+  <div className="flex h-16 border-2 border-gray-200">
     <img
-      className="inline max-w-xs flex-end self-center h-10 mx-4"
+      className="self-center inline h-10 max-w-xs mx-4 flex-end"
       src="/hero.png"
       alt="Author profile"
     />
@@ -23,11 +23,11 @@ const CardImage = () => (
 const LikesAndComments = () => (
   <div className="flex">
     <div>
-      <CommentImg className="m-4 inline-block" />
+      <CommentImg className="inline-block m-4" />
       <span className="align-middle">3 Comments</span>
     </div>
     <div className="content-center self-center ml-auto mr-4">
-      <LikeImg className="align-text-bottom inline-block" />
+      <LikeImg className="inline-block align-text-bottom" />
       <span className=""> 17 Likes</span>
     </div>
   </div>
@@ -35,8 +35,8 @@ const LikesAndComments = () => (
 
 const CardContent = () => (
   <div className="px-6 py-8">
-    <div className="font-bold text-xl mb-2">The Coldest Sunset</div>
-    <p className="text-gray-700 text-base">
+    <div className="mb-2 text-xl font-bold">The Coldest Sunset</div>
+    <p className="text-base text-gray-700">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus
       quia, nulla! Maiores et perferendis eaque, exercitationem praesentium
       nihil.
@@ -49,7 +49,7 @@ const Card = ({ expanded }) => {
     <Link href="/wish">
       <div
         style={{ width: expanded ? '65%' : '30%' }}
-        className="cursor-pointer inline-block shadow-md mt-8"
+        className="inline-block mt-8 shadow-lg cursor-pointer hover:shadow-md"
       >
         <CardHeader />
         <CardImage />

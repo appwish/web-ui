@@ -46,7 +46,7 @@ const CardContent = () => (
 
 const Card = ({ expanded }) => {
   return (
-    <Link href="/wish">
+    <Link href="/wish/description">
       <div
         style={{ width: expanded ? '65%' : '30%' }}
         className="inline-block mt-8 shadow-lg cursor-pointer hover:shadow-md"

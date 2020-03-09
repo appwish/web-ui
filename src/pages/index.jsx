@@ -7,7 +7,7 @@ import { ReactComponent as WaitImg } from '../../public/hourglass.svg'
 const WishFeed = () => (
   <Layout>
     <Filters />
-    <div className="flex justify-between flex-wrap">
+    <div className="flex flex-wrap justify-between">
       <Card />
       <Card />
       <Card />

@@ -1,8 +1,13 @@
 import Link from 'next/link'
+import GoogleLogin from 'react-google-login'
 import { ReactComponent as NotificationImg } from '../../public/notification.svg'
 import { ReactComponent as SearchImg } from '../../public/search.svg'
 import { ReactComponent as EditImg } from '../../public/edit.svg'
 import { ReactComponent as AppwishLogoImg } from '../../public/appwish.svg'
+
+const onSuccess = response => {
+  console.log(response)
+}
 
 const AddWishButton = ({ className }) => {
   const concatenatedClassName = `px-4 py-2 text-gray-700 text-lg border hover:border-gray-500 cursor-pointer ${className}`
@@ -40,6 +45,22 @@ const Header = () => {
             <Link href="/profile">
               <img className="h-10 cursor-pointer" src="/hero.png" />
             </Link>
+            <GoogleLogin
+              clientId="986032261983-4c904q9r46ctji8h4k12lkgcc6n90cif.apps.googleusercontent.com"
+              render={renderProps => (
+                <div
+                  onClick={renderProps.onClick}
+                  disabled={renderProps.disabled}
+                  className="px-4 py-2 text-gray-700 text-lg border hover:border-gray-500 cursor-pointer"
+                >
+                  <span className="font-bold text-xs">Sign In</span>
+                </div>
+              )}
+              buttonText="Login"
+              onSuccess={onSuccess}
+              onFailure={onSuccess}
+              cookiePolicy={'single_host_origin'}
+            />
           </div>
         </div>
       </div>

@@ -5,8 +5,10 @@ import { ReactComponent as SearchImg } from '../../public/search.svg'
 import { ReactComponent as EditImg } from '../../public/edit.svg'
 import { ReactComponent as AppwishLogoImg } from '../../public/appwish.svg'
 
+// TODO create separate sign in component and logic
 const onSuccess = response => {
   console.log(response)
+  localStorage.setItem('token', response.tokenId)
 }
 
 const AddWishButton = ({ className }) => {

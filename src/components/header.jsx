@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import Link from 'next/link'
 import GoogleLogin from 'react-google-login'
 import { ReactComponent as NotificationImg } from '../../public/notification.svg'
@@ -44,7 +46,7 @@ const Header = () => {
               onClick={() => alert('Notifications should be displayed')}
               className="w-5 h-5 mr-4 cursor-pointer "
             />
-            <Link href="/profile">
+            <Link href="/demo">
               <img className="h-10 cursor-pointer" src="/hero.png"  alt="user_profile"/>
             </Link>
             <GoogleLogin
@@ -53,15 +55,15 @@ const Header = () => {
                 <div
                   onClick={renderProps.onClick}
                   disabled={renderProps.disabled}
-                  className="px-4 py-2 text-gray-700 text-lg border hover:border-gray-500 cursor-pointer"
+                  className="px-4 py-2 text-lg text-gray-700 border cursor-pointer hover:border-gray-500"
                 >
-                  <span className="font-bold text-xs">Sign In</span>
+                  <span className="text-xs font-bold">Sign In</span>
                 </div>
               )}
               buttonText="Login"
               onSuccess={onSuccess}
               onFailure={onSuccess}
-              cookiePolicy={'single_host_origin'}
+              cookiePolicy='single_host_origin'
             />
           </div>
         </div>

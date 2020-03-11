@@ -3,6 +3,7 @@ import { ApolloProvider } from '@apollo/react-hooks'
 import { ApolloClient } from 'apollo-client'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import { HttpLink } from 'apollo-link-http'
+import { setContext } from 'apollo-link-context'
 import fetch from 'isomorphic-unfetch'
 
 let globalApolloClient = null
@@ -123,13 +124,27 @@ function initApolloClient(initialState) {
  * @param  {Object} [initialState={}]
  */
 function createApolloClient(initialState = {}) {
+  const authLink = setContext((_, { headers }) => {
+    // get the authentication token from local storage if it exists
+    const token = localStorage.getItem('token')
+    // return the headers to the context so httpLink can read them
+    return {
+      headers: {
+        ...headers,
+        authorization: token || '',
+      },
+    }
+  })
+
   return new ApolloClient({
     ssrMode: typeof window === 'undefined', // Disables forceFetch on the server (so queries are only run once)
-    link: new HttpLink({
-      uri: process.env.GRAPHQL_SERVER_URL, // Server URL (must be absolute)
-      credentials: 'same-origin', // Additional fetch() options like `credentials` or `headers`
-      fetch,
-    }),
+    link: authLink.concat(
+      new HttpLink({
+        uri: process.env.GRAPHQL_SERVER_URL, // Server URL (must be absolute)
+        credentials: 'same-origin', // Additional fetch() options like `credentials` or `headers`
+        fetch,
+      })
+    ),
     cache: new InMemoryCache().restore(initialState),
   })
 }
